@@ -76,7 +76,7 @@ public class MapReduceClassifier {
 		conf.setLong("mapred.job.reuse.jvm.num.tasks", -1);
 	
 		Job job = new Job(conf, "classifier");
-	
+		job.setJarByClass(MapReduceClassifier.class);	
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		job.setMapperClass(ClassifierMap.class);
